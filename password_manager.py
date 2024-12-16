@@ -311,25 +311,52 @@ class password_manager():
      def delete_web(self):
            print("this is the delete web page")
            delname=input("enter website name : ")
+           tempweb=[]
            for i in range(len(self.webappdata)):
                 if(delname==self.webappdata[i]["website_name"]):
+                    tempweb.append(self.webappdata[i])
+           print("names matching with your search are : ")         
+           for i in range(len(tempweb)):
+                print(i+1,")",tempweb[i])
+           #print("choose one of them and press enter")
+           choose=int(input("choose one of them and press enter"))
+           select_web=tempweb[choose-1]
+           print(select_web)
+
+           for i in range(len(self.webappdata)):
+                if(tempweb==self.webappdata[i]["website_name"]):
                         del self.webappdata[i]
                         print("deleted successfully")
                         break
            else:
                 print("no such website found")
+
+           tempweb=[]
            self.home()
 
      def delete_app(self):
            print("this is the delete app page")
            delname=input("enter app name : ")
+           tempapp=[]
            for i in range(len(self.appdata)):
-                if(delname==self.appdata[i]["app_name"]):
+                if(delname==self.appdata[i]["website_name"]):
+                    tempapp.append(self.appdata[i])
+           print("names matching with your search are : ")         
+           for i in range(len(tempapp)):
+                print(i+1,")",tempapp[i])
+           #print("choose one of them and press enter")
+           choose=int(input("choose one of them and press enter"))
+           select_app=tempapp[choose-1]
+           print(select_app)
+
+           for i in range(len(self.appdata)):
+                if(tempapp==self.appdata[i]["app_name"]):
                         del self.appdata[i]
                         print("deleted successfully")
                         break
            else:
                 print("no such app found")
+           tempapp=[]
            self.home()
      def __init__(self):
            self.home()
