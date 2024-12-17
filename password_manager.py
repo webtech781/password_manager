@@ -4,7 +4,6 @@ class password_manager():
      create_appdata={}
      webappdata=[]
      appdata=[]
-
      def home(self):
             print("welcome to password manager")
             print("1. create password")
@@ -49,52 +48,111 @@ class password_manager():
            else:
                   print("invalid choice")
                   self.create_password()
+     # def create_web_password(self):
+     #        weburl=input("enter website url : ")
+     #        if len(weburl)==0:
+     #               print("please enter a valid url")
+     #               self.create_web_password()
+     #        else:
+     #           webname=input("enter website name : ")
+     #           if len(webname)==0:
+     #                print("please enter a valid name")
+     #                self.create_web_password()
+     #           else:
+     #               username=input("enter username : ")
+     #               if len(username)==0:
+     #                    print("please enter a valid username")
+     #                    self.create_web_password()
+     #               else:
+     #                   password=input("enter password : ")
+     #                   if len(password)==0:
+     #                        print("please enter a valid password")
+     #                        self.create_web_password()
+     #                   else:
+     #                      self.create_webdata={"website_url":weburl,"website_name":webname,"username":username,"password":password}
+
+     #        self.webappdata.append(self.create_webdata)
+     #        # print(self.create_webdata)
+     #        print("\n\nwebsite url : ",self.create_webdata["website_url"],"\nwebsite Name : ",self.create_webdata["website_name"],"\nUsername : ",self.create_webdata["username"],"\nPassword : ",self.create_webdata["password"])
+     #        print("\nThis data was updated....\n\n")
+     #        self.home()
+
      def create_web_password(self):
-            weburl=input("enter website url : ")
-            if len(weburl)==0:
-                   print("please enter a valid url")
-                   self.create_web_password()
-            else:
-               webname=input("enter website name : ")
-               if len(webname)==0:
-                    print("please enter a valid name")
-                    self.create_web_password()
-               else:
-                   username=input("enter username : ")
-                   if len(username)==0:
-                        print("please enter a valid username")
-                        self.create_web_password()
-                   else:
-                       password=input("enter password : ")
-                       if len(password)==0:
-                            print("please enter a valid password")
-                            self.create_web_password()
-                       else:
-                          self.create_webdata={"website_url":weburl,"website_name":webname,"username":username,"password":password}
+      while True:
+        weburl = input("Enter website URL: ")
+        if not weburl:
+            print("Please enter a valid URL")
+            continue
+        webname = input("Enter website name: ")
+        if not webname:
+            print("Please enter a valid name")
+            continue
+        username = input("Enter username: ")
+        if not username:
+            print("Please enter a valid username")
+            continue
+        password = input("Enter password: ")
+        if not password:
+            print("Please enter a valid password")
+            continue
 
-            self.webappdata.append(self.create_webdata)
-            # print(self.create_webdata)
-            print("\n\nwebsite url : ",self.create_webdata["website_url"],"\nwebsite Name : ",self.create_webdata["website_name"],"\nUsername : ",self.create_webdata["username"],"\nPassword : ",self.create_webdata["password"])
-            print("\nThis data was updated....\n\n")
-            self.home()
+        # If all inputs are valid, save the data
+        self.create_webdata = {
+            "website_url": weburl,
+            "website_name": webname,
+            "username": username,
+            "password": password,
+        }
+        self.webappdata.append(self.create_webdata)
+        print("\nWebsite details saved successfully!")
+        break
+      self.home()
+      def get_input(self, prompt, error_message="Invalid input! Please try again."):
+        while True:
+            value = input(prompt).strip()
+            if value:
+               return value
+            print(error_message)
 
+
+     # def create_app_password(self):
+     #        appname=input("enter App name : ")
+     #        if len(appname)==0:
+     #               print("please enter a valid app name")
+     #               self.create_app_password()
+     #        else:
+     #         username=input("enter username : ")
+     #         if len(username)==0:
+     #              print("please enter a valid username")
+     #              self.create_app_password()
+     #         else:
+     #          password=input("enter password : ")
+     #          if len(password)==0:
+     #               print("please enter a valid password")
+     #               self.create_app_password()
+     #          else:
+     #           self.create_appdata={"app_name":appname,"username":username,"password":password}
+     #        self.appdata.append(self.create_appdata)
+     #        print("\n\nApp Name : ",self.create_appdata["app_name"],"\nUsername : ",self.create_appdata["username"],"\nPassword : ",self.create_appdata["password"])
+     #        print("\nThis data was updated....\n\n")
+     #        # print(self.appdata)
+     #        # print(self.create_appdata.values())
+     #        self.home()
      def create_app_password(self):
+        while True:
             appname=input("enter App name : ")
-            if len(appname)==0:
+            if not appname:
                    print("please enter a valid app name")
-                   self.create_app_password()
-            else:
-             username=input("enter username : ")
-             if len(username)==0:
+                   continue
+            username=input("enter username : ")
+            if not username:
                   print("please enter a valid username")
-                  self.create_app_password()
-             else:
-              password=input("enter password : ")
-              if len(password)==0:
+                  continue
+            password=input("enter password : ")
+            if not password:
                    print("please enter a valid password")
-                   self.create_app_password()
-              else:
-               self.create_appdata={"app_name":appname,"username":username,"password":password}
+                   continue
+            self.create_appdata={"app_name":appname,"username":username,"password":password}
             self.appdata.append(self.create_appdata)
             print("\n\nApp Name : ",self.create_appdata["app_name"],"\nUsername : ",self.create_appdata["username"],"\nPassword : ",self.create_appdata["password"])
             print("\nThis data was updated....\n\n")
@@ -324,7 +382,7 @@ class password_manager():
            print(select_web)
 
            for i in range(len(self.webappdata)):
-                if(tempweb==self.webappdata[i]["website_name"]):
+                if(select_web==self.webappdata[i]):
                         del self.webappdata[i]
                         print("deleted successfully")
                         break
@@ -350,7 +408,7 @@ class password_manager():
            print(select_app)
 
            for i in range(len(self.appdata)):
-                if(tempapp==self.appdata[i]["app_name"]):
+                if(select_app==self.appdata[i]):
                         del self.appdata[i]
                         print("deleted successfully")
                         break
@@ -358,6 +416,9 @@ class password_manager():
                 print("no such app found")
            tempapp=[]
            self.home()
+
+     def error():
+          print("please enter a valid app name")
      def __init__(self):
            self.home()
            #print(self.choose)
