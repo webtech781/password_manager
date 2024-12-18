@@ -378,7 +378,7 @@ class password_manager():
            for i in range(len(tempweb)):
                 print(i+1,")",tempweb[i])
            #print("choose one of them and press enter")
-           choose=int(input("choose one of them and press enter"))
+           choose=int(input("choose one of them and press enter : "))
            select_web=tempweb[choose-1]
            print(select_web)
 
@@ -404,7 +404,7 @@ class password_manager():
            for i in range(len(tempapp)):
                 print(i+1,")",tempapp[i])
            #print("choose one of them and press enter")
-           choose=int(input("choose one of them and press enter"))
+           choose=int(input("choose one of them and press enter : "))
            select_app=tempapp[choose-1]
            print(select_app)
 
