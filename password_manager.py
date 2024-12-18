@@ -2,7 +2,8 @@ class password_manager():
      """ This was developloped by vamshi krishna"""
      create_webdata={}
      create_appdata={}
-     webappdata=[]
+     #webappdata=[]
+     webappdata = [{"website_url":"https://www.google.com/","website_name":"google","username":"abc@gmail.com","password":"123"},{"website_url":"https://www.facebook.com/","website_name":"facebook","username":"xyz@gmail.com","password":"456"}]
      appdata=[]
      def home(self):
             print("welcome to password manager")
