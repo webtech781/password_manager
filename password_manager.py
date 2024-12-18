@@ -424,9 +424,6 @@ class password_manager():
            self.home()
            #print(self.choose)
 
-         
-
-
 def login():
    admin="admin"
    password="password"
