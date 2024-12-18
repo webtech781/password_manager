@@ -429,7 +429,7 @@ class password_manager():
 
 def login():
    admin="admin"
-   password="vamshi"
+   password="password"
    user_name=input("enter user name : ")
    if admin==user_name:
            pass_word=input("enter password : ")
